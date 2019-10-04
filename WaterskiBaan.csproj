@@ -46,6 +46,7 @@
     <Compile Include="LijnenVoorraad.cs" />
     <Compile Include="LijnenInGebruik.cs" />
     <Compile Include="IMove.cs" />
+    <Compile Include="WaterskiBaan.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
