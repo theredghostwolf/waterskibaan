@@ -45,7 +45,6 @@
     <Compile Include="InstructieGroep.cs" />
     <Compile Include="LijnenVoorraad.cs" />
     <Compile Include="LijnenInGebruik.cs" />
-    <Compile Include="Queue.cs" />
     <Compile Include="IMove.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

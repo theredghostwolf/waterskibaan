@@ -1,0 +1,6 @@
+/home/ghostwolf/Projects/WaterskiBaan/WaterskiBaan/obj/x86/Debug/WaterskiBaan.csprojAssemblyReference.cache
+/home/ghostwolf/Projects/WaterskiBaan/WaterskiBaan/obj/x86/Debug/WaterskiBaan.csproj.CoreCompileInputs.cache
+/home/ghostwolf/Projects/WaterskiBaan/WaterskiBaan/bin/Debug/WaterskiBaan.exe
+/home/ghostwolf/Projects/WaterskiBaan/WaterskiBaan/bin/Debug/WaterskiBaan.pdb
+/home/ghostwolf/Projects/WaterskiBaan/WaterskiBaan/obj/x86/Debug/WaterskiBaan.exe
+/home/ghostwolf/Projects/WaterskiBaan/WaterskiBaan/obj/x86/Debug/WaterskiBaan.pdb
