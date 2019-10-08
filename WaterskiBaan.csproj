@@ -51,6 +51,7 @@
     <Compile Include="moves\Salto.cs" />
     <Compile Include="moves\RondjeDraaien.cs" />
     <Compile Include="moves\MoveCollection.cs" />
+    <Compile Include="IWachtrij.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="moves\" />
