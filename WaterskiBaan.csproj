@@ -52,6 +52,7 @@
     <Compile Include="moves\RondjeDraaien.cs" />
     <Compile Include="moves\MoveCollection.cs" />
     <Compile Include="IWachtrij.cs" />
+    <Compile Include="Wachtrij.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="moves\" />
