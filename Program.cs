@@ -24,6 +24,8 @@ namespace WaterskiBaan
 
             LijnenVoorraad.testOpdracht3();
 
+            WaterskiBaan.TestOpdracht8();
+
         }
     }
 }

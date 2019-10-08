@@ -5,6 +5,8 @@ namespace WaterskiBaan
     {
         public int PositieOpKabel;
 
+        public Sporter sporter { get; set; }
+
         public Lijn()
         {
           

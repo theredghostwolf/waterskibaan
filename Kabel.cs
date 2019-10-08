@@ -52,7 +52,7 @@ namespace WaterskiBaan
             LinkedListNode<Lijn> node = lijnen.First;
             while (node != null)
             {
-                if (node.Value.PositieOpKabel == 9)
+                if (node.Value.PositieOpKabel == 9 && node.Value.sporter.AantalRondenNogTeGaan == 1)
                 {
                     lijnen.Remove(node);
                     return node.Value;

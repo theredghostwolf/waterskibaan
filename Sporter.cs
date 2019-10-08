@@ -6,6 +6,8 @@ namespace WaterskiBaan
     public class Sporter
     {
 
+        public int BehaaldePunten { get; set; }
+
         public int AantalRondenNogTeGaan { get; set; }
 
         public Zwemvest zwemvest { get; set; }
@@ -19,6 +21,10 @@ namespace WaterskiBaan
         public Sporter(List<IMove> moves)
         {
             this.moves = moves;
+
+            Random r = new Random();
+
+            //kledingKleur = new Color (r.next(255), r.next(255), r.next(255));
         }
     }
 }
