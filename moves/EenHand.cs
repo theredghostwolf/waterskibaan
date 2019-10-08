@@ -9,7 +9,14 @@ namespace WaterskiBaan.moves
 
         public int Move()
         {
-            return 5;
+            if (MoveCollection.rng(5))
+            {
+                return 5;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

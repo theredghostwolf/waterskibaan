@@ -56,6 +56,16 @@ namespace WaterskiBaan
             }
         }
 
+        public void start ()
+        {
+
+        }
+
+        public void stop ()
+        {
+
+        }
+
         public static void TestOpdracht8 ()
         {
             WaterskiBaan wb = new WaterskiBaan();
