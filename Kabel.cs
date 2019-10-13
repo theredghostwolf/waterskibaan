@@ -7,6 +7,8 @@ namespace WaterskiBaan
     public class Kabel
     {
 
+
+
         private LinkedList<Lijn> lijnen;
 
         public Kabel()
@@ -37,6 +39,15 @@ namespace WaterskiBaan
             LinkedListNode<Lijn> node = lijnen.First;
             while (node != null)
             {
+                //handle moves
+                Random r = new Random();
+                if (r.Next(10000) > 7500) // +- 25% chance
+                {
+                    Sporter s = node.Value.sporter;
+                    s.HuidigeMove = s.moves[r.Next(s.moves.Count)];
+                    s.BehaaldePunten += s.HuidigeMove.Move();
+                }
+
                 node.Value.PositieOpKabel++;
                 if (node.Value.PositieOpKabel > 9)
                 {

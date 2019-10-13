@@ -16,6 +16,8 @@ namespace WaterskiBaan
 
         //public Color KledingKleur { get; set; }
 
+        public IMove HuidigeMove;
+
         public List<IMove> moves { get; set; }
 
         public Sporter(List<IMove> moves)

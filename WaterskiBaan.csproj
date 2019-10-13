@@ -54,6 +54,9 @@
     <Compile Include="IWachtrij.cs" />
     <Compile Include="Wachtrij.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="NieuweBezoekerArgs.cs" />
+    <Compile Include="InstructieAfgelopenArgs.cs" />
+    <Compile Include="VerschuifLijnenArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="moves\" />

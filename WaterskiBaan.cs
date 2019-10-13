@@ -9,6 +9,15 @@ namespace WaterskiBaan
         private LijnenVoorraad voorraad;
         private Kabel kabel;
 
+        public delegate void VerschuifLijnenHandler(VerschuifLijnenArgs args);
+
+        public event VerschuifLijnenHandler EventVerschuifLijnen;
+
+        public Kabel getKabel  ()
+        {
+            return kabel;
+        }
+
         private static int startSupply = 15;
 
         public WaterskiBaan()
@@ -24,8 +33,14 @@ namespace WaterskiBaan
 
         public void VerplaatsKabel()
         {
+            //EventVerschuifLijnen(new VerschuifLijnenArgs());
+
+            Lijn l = kabel.verwijderLijnVanKabel();
             kabel.VerschuifLijnen();
-            voorraad.LijnToevoegenAanRij(kabel.verwijderLijnVanKabel());
+            if (l != null)
+            {
+                voorraad.LijnToevoegenAanRij(l);
+            }
         }
 
         public override string ToString()
@@ -69,11 +84,8 @@ namespace WaterskiBaan
         public static void TestOpdracht8 ()
         {
             WaterskiBaan wb = new WaterskiBaan();
-            List<IMove> m = new List<IMove>();
-            m.Add(new EenBeen());
-            m.Add(new EenHand());
-
-            Sporter s = new Sporter(m);
+           
+            Sporter s = new Sporter(MoveCollection.GetRandomMoves());
 
             wb.SporterStart(s); //exception
 

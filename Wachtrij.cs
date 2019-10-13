@@ -33,7 +33,14 @@ namespace WaterskiBaan
             List<Sporter> s = new List<Sporter>();
             for (int i = 0; i < aantal; i++)
             {
-                s.Add(sporters.Dequeue());
+                if (sporters.Count > 0)
+                {
+                    Sporter sp = sporters.Dequeue();
+                    if (sp != null)
+                    {
+                        s.Add(sp);
+                    }
+                }
             }
             return s;
         }

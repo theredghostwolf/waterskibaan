@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using WaterskiBaan.moves;
 
 namespace WaterskiBaan
 {
@@ -6,6 +8,7 @@ namespace WaterskiBaan
     {
         public static void Main(string[] args)
         {
+            /*
             Kabel k = new Kabel();
 
             k.NeemLijnInGebruik(new Lijn());
@@ -25,7 +28,22 @@ namespace WaterskiBaan
             LijnenVoorraad.testOpdracht3();
 
             WaterskiBaan.TestOpdracht8();
+            */
+            //Game.TestOpdracht11();
 
+            /*
+            Game g = new Game();
+            g.Initialize();
+
+            for(int i = 0; i < 200; i++)
+            {
+                g.t();
+                Thread.Sleep(1000);
+            }
+            */
+
+            Game.TestOpdracht12();
+            Console.ReadLine();
         }
     }
 }
