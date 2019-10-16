@@ -6,6 +6,7 @@ namespace WaterskiBaan
 {
     class MainClass
     {
+        /*
         public static void Main(string[] args)
         {
             /*
@@ -31,7 +32,7 @@ namespace WaterskiBaan
             */
             //Game.TestOpdracht11();
 
-
+            /*
             Game g = new Game();
             g.Initialize();
 
@@ -41,7 +42,7 @@ namespace WaterskiBaan
                 Thread.Sleep(1000 / 10);
             }
             g.logger.data();
-
+            */
 
 
             // Game.TestOpdracht12();
@@ -53,5 +54,6 @@ namespace WaterskiBaan
             */           
 
         }
+        
     }
-}
+

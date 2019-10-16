@@ -6,7 +6,7 @@ namespace WaterskiBaan
 {
     public class WaterskiBaan
     {
-        private LijnenVoorraad voorraad;
+        public LijnenVoorraad voorraad { get; private set; }
         private Kabel kabel;
 
         public System.Timers.Timer timer { get; set; }
@@ -33,7 +33,7 @@ namespace WaterskiBaan
             }
 
             //setup a timer on a 1 second delay
-            timer = new System.Timers.Timer(1000 / 5);
+            timer = new System.Timers.Timer(1000);
 
             //add stuff to the timer
             timer.AutoReset = true;

@@ -26,6 +26,10 @@ namespace WaterskiBaan
 
         private Random random;
 
+        private System.Timers.Timer redrawTimer; 
+
+        private MainWindow window;
+
         private int ID;
 
         private int kabelCounter;
@@ -38,6 +42,11 @@ namespace WaterskiBaan
 
         }
 
+        public Game (MainWindow window)
+        {
+            this.window = window;
+        }
+
         public void Initialize ()
         {
             //initialize our similation
@@ -45,6 +54,14 @@ namespace WaterskiBaan
             wachtrijStarten = new WachtrijStarten();
             wachtrijInstructie = new WachtrijInstructie();
             waterskiBaan = new WaterskiBaan();
+
+            if (this.window != null)
+            {
+                redrawTimer = new System.Timers.Timer(150);
+                redrawTimer.Elapsed += redraw;
+                redrawTimer.AutoReset = true;
+                redrawTimer.Start();
+            }
 
             ID = 0;
             kabelCounter = 0;
@@ -62,8 +79,13 @@ namespace WaterskiBaan
             waterskiBaan.EventVerschuifLijnen += lijnenVerschoven;
 
             //start simulation
-            //waterskiBaan.start();
+            waterskiBaan.start();
 
+        }
+
+        public void redraw (Object source, ElapsedEventArgs e)
+        {
+            this.window.Redraw(waterskiBaan, wachtrijInstructie, instructieGroep, wachtrijStarten);
         }
 
         public void tick (Object source, ElapsedEventArgs e)
@@ -121,6 +143,7 @@ namespace WaterskiBaan
                 kabelCounter++;
             }
 
+
             Console.Clear();
             Console.WriteLine("-----------------------------");
             Console.WriteLine(wachtrijInstructie);
@@ -147,7 +170,5 @@ namespace WaterskiBaan
 
             }
         }
-
-
     }
 }

@@ -7,9 +7,12 @@ namespace WaterskiBaan
     public class Kabel
     {
 
-
-
         private LinkedList<Lijn> lijnen;
+
+        public LinkedList<Lijn> getLijnen()
+        {
+            return lijnen;
+        }
 
         public Kabel()
         {
@@ -50,6 +53,10 @@ namespace WaterskiBaan
                 {
                     s.HuidigeMove = s.moves[r.Next(s.moves.Count)];
                     s.BehaaldePunten += s.HuidigeMove.Move();
+                }
+                else
+                {
+                    s.HuidigeMove = null;
                 }
 
 
