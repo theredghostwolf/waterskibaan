@@ -9,6 +9,8 @@ namespace WaterskiBaan
         private LijnenVoorraad voorraad;
         private Kabel kabel;
 
+        public System.Timers.Timer timer { get; set; }
+
         public delegate void VerschuifLijnenHandler(VerschuifLijnenArgs args);
 
         public event VerschuifLijnenHandler EventVerschuifLijnen;
@@ -29,16 +31,24 @@ namespace WaterskiBaan
             {
                 voorraad.LijnToevoegenAanRij(new Lijn());
             }
+
+            //setup a timer on a 1 second delay
+            timer = new System.Timers.Timer(1000 / 5);
+
+            //add stuff to the timer
+            timer.AutoReset = true;
         }
 
         public void VerplaatsKabel()
         {
-            //EventVerschuifLijnen(new VerschuifLijnenArgs());
+            EventVerschuifLijnen(new VerschuifLijnenArgs(this, kabel));
 
             Lijn l = kabel.verwijderLijnVanKabel();
             kabel.VerschuifLijnen();
+
             if (l != null)
             {
+                l.sporter = null;
                 voorraad.LijnToevoegenAanRij(l);
             }
         }
@@ -61,7 +71,7 @@ namespace WaterskiBaan
                 {
                     //aantal rondes 1-2
                     Random r = new Random();
-                    sporter.AantalRondenNogTeGaan = r.Next(2);
+                    sporter.AantalRondenNogTeGaan = r.Next(1,3);
                     //lijn op halen
                     Lijn lijn = voorraad.VerwijderEersteLijn();
                     lijn.sporter = sporter;
@@ -73,19 +83,22 @@ namespace WaterskiBaan
 
         public void start ()
         {
+            timer.Start();
 
         }
 
         public void stop ()
         {
-
+            timer.Stop();
         }
+
+
 
         public static void TestOpdracht8 ()
         {
             WaterskiBaan wb = new WaterskiBaan();
            
-            Sporter s = new Sporter(MoveCollection.GetRandomMoves());
+            Sporter s = new Sporter(MoveCollection.GetRandomMoves(), 0);
 
             wb.SporterStart(s); //exception
 

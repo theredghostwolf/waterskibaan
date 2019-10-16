@@ -5,12 +5,14 @@ namespace WaterskiBaan
 {
     public class WachtrijStarten : Wachtrij
     {
-        public static int MAX_LENGTE_RIJ = 20;
+        public static int MAX_LENGTE_RIJ = 30;
 
         public WachtrijStarten() : base (MAX_LENGTE_RIJ)
         {
 
         }
+
+      
 
     }
 }

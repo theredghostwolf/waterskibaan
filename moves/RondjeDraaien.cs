@@ -18,5 +18,10 @@ namespace WaterskiBaan.moves
                 return 0;
             }
         }
+
+        public override string ToString()
+        {
+            return "Rondje draaien";
+        }
     }
 }

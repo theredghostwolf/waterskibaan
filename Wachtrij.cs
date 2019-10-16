@@ -49,5 +49,17 @@ namespace WaterskiBaan
         {
             return "Aantal in rij: " + sporters.Count;
         }
+
+        public Sporter sporterVerlaatRij()
+        {
+            if (sporters.Count > 0)
+            {
+                return sporters.Dequeue();
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

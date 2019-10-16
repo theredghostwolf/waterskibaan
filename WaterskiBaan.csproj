@@ -30,6 +30,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="NieuweBezoekerArgs.cs" />
     <Compile Include="InstructieAfgelopenArgs.cs" />
     <Compile Include="VerschuifLijnenArgs.cs" />
+    <Compile Include="Logger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="moves\" />

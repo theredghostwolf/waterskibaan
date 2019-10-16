@@ -14,6 +14,7 @@ namespace WaterskiBaan
         public Kabel()
         {
             lijnen = new LinkedList<Lijn>();
+            
         }
 
         public bool IsStartPositieLeeg()
@@ -37,21 +38,28 @@ namespace WaterskiBaan
         public void VerschuifLijnen()
         {
             LinkedListNode<Lijn> node = lijnen.First;
+            //test
             while (node != null)
             {
                 //handle moves
                 Random r = new Random();
+                Sporter s = node.Value.sporter;
+
+
                 if (r.Next(10000) > 7500) // +- 25% chance
                 {
-                    Sporter s = node.Value.sporter;
                     s.HuidigeMove = s.moves[r.Next(s.moves.Count)];
                     s.BehaaldePunten += s.HuidigeMove.Move();
                 }
 
+
                 node.Value.PositieOpKabel++;
+
                 if (node.Value.PositieOpKabel > 9)
                 {
+                    node.Value.sporter.AantalRondenNogTeGaan--;
                     node.Value.PositieOpKabel = 0;
+                    Logger.rondes++;
                 }
                 node = node.Next;
             }
@@ -63,10 +71,12 @@ namespace WaterskiBaan
             LinkedListNode<Lijn> node = lijnen.First;
             while (node != null)
             {
-                if (node.Value.PositieOpKabel == 9 && node.Value.sporter.AantalRondenNogTeGaan == 1)
+                if (node.Value.PositieOpKabel >= 9 && node.Value.sporter.AantalRondenNogTeGaan <= 1)
                 {
+                    Logger.rondes++;
                     lijnen.Remove(node);
                     return node.Value;
+                    
                 }
                 node = node.Next;
             }
@@ -96,6 +106,41 @@ namespace WaterskiBaan
 
             return res;
 
+        }
+
+        public List<IMove> getUniekeMoves ()
+        {
+            //return lijnen.Select(l => l.sporter.moves).Distinct().ToList();
+            //return lijnen.SelectMany(l => l.sporter.moves).Distinct().ToList();
+
+            List<IMove> moves = new List<IMove>();
+
+            LinkedListNode<Lijn> node = lijnen.First;
+            while (node != null)
+            {
+
+                List<IMove> sMoves = node.Value.sporter.moves;
+                foreach (IMove sm in sMoves)
+                {
+                    bool exists = false;
+                    foreach (IMove m in moves)
+                    {
+                        if (sm.GetType() == m.GetType())
+                        {
+                            exists = true;
+                            break;
+                        }
+                    }
+                    if (!exists)
+                    {
+                        moves.Add(sm);
+                    }
+                }
+
+                node = node.Next;
+            }
+
+            return moves;
         }
     }
 }

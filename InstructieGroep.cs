@@ -20,12 +20,9 @@ namespace WaterskiBaan
 
         public void Afgelopen (InstructieAfgelopenArgs args)
         {
-            if (this.sporters.Count > 0)
+            while (this.sporters.Count > 0)
             {
-                foreach (Sporter s in this.sporters)
-                {
-                    args.target.SporterNeemtPlaatsInRij(s);
-                }
+                args.target.SporterNeemtPlaatsInRij(this.sporters.Dequeue());
             }
 
             if (args.sporters.Count > 0)

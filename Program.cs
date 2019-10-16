@@ -31,19 +31,27 @@ namespace WaterskiBaan
             */
             //Game.TestOpdracht11();
 
-            /*
+
             Game g = new Game();
             g.Initialize();
 
-            for(int i = 0; i < 200; i++)
+            for(int i = 0; i < 300; i++)
             {
                 g.t();
-                Thread.Sleep(1000);
+                Thread.Sleep(1000 / 10);
             }
-            */
+            g.logger.data();
 
-            Game.TestOpdracht12();
+
+
+            // Game.TestOpdracht12();
+            /*
+            Game g = new Game();
+            g.Initialize();
             Console.ReadLine();
+            g.logger.data();
+            */           
+
         }
     }
 }
